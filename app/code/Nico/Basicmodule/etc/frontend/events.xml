@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/event.xsd">
+    <event name="core_layout_block_create_after">
+        <observer name="display_link" instance="Nico\Basicmodule\Observer\DisplayLink" />
+    </event>
+</config>

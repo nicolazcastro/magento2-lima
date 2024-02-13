@@ -1,0 +1,8 @@
+/app/etc/env.php
+/var/*
+/pub/media/
+/pub/static/
+/generated/
+/vendor/
+/composer.lock
+/composer.json

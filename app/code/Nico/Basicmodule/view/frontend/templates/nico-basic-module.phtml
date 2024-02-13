@@ -1,0 +1,30 @@
+<?php
+
+use Nico\Basicmodule\Block\Index;
+use \Magento\Framework\Escaper;
+
+/** @var Index $block */
+/** @var Escaper $escaper */
+$categories = $block->getCategories();
+?>
+
+<h2>Welcome to Nico Basic Module</h2>
+<p>With Layout support</p>
+<p><?= $block->getTopic(); ?></p>
+<p><a target="_blank" href="<?= $block->getDisplayLink(); ?>"><?= $escaper->escapeHtml(__('Go to Google link created from event dispatcher')); ?></a></p>
+<p>
+<h2>Todas las categorías</h2>
+<ul class="subcategory-items">
+    <?php
+    foreach ($categories as $cat) {
+    ?>
+        <li class="subcategory-item">
+            <a href="<?php echo $cat->getUrl(); ?>">
+                <?php echo $cat->getName(); ?>
+            </a>
+        </li>
+    <?php
+    }
+    ?>
+</ul>
+</p>
