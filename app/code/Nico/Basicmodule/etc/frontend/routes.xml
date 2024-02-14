@@ -4,5 +4,8 @@
         <route id="nicomodule" frontName="nico-basic-module">
             <module name="Nico_Basicmodule" />
         </route>
+        <route id="miraklnotification" frontName="miraklnotification">
+            <module name="Nico_Basicmodule" />
+        </route>
     </router>
 </config>
