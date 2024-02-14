@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Nico\Basicmodule\Model\MiraklStockUpdater" type="Nico\Basicmodule\Model\MiraklStockUpdater" />
+    <preference for="Nico\Basicmodule\Model\StockUpdaterModel" type="Nico\Basicmodule\Model\StockUpdaterModel" />
+    <type name="Nico\Basicmodule\Controller\MiraklStockUpdater\MiraklStockUpdaterController">
+        <arguments>
+            <argument name="stockUpdaterModel" xsi:type="object">Nico\Basicmodule\Model\StockUpdaterModel</argument>
+            <argument name="request" xsi:type="object">Magento\Framework\App\Request\Http</argument>
+        </arguments>
+    </type>
+</config>
