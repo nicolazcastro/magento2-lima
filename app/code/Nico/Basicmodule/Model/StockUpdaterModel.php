@@ -12,6 +12,10 @@ class StockUpdaterModel
     protected $request;
     protected $stockRegistry;
 
+    private $apiKey;
+
+    const API_KEY = 'ERTYRTY$/%&$%RYERTYERY$%&$';
+
     public function __construct(
         MiraklStockUpdater $miraklStockUpdater,
         RequestInterface $request,
@@ -20,6 +24,7 @@ class StockUpdaterModel
         $this->miraklStockUpdater = $miraklStockUpdater;
         $this->request = $request;
         $this->stockRegistry = $stockRegistry;
+        $this->apiKey = Self::API_KEY;
     }
 
     public function updateStockInMirakl()
@@ -35,6 +40,9 @@ class StockUpdaterModel
         // Process Mirakl notification data and update stock in Magento
         $productSku = $notificationData['product_sku']; // Assuming 'product_sku' is the key for product ID in the notification data
         $quantity = $notificationData['quantity']; // Assuming 'quantity' is the key for quantity in the notification data
+        $key = $this->request->getParam('api_key'); // API KEY provided to authenticate calls from Mirakl
+
+        if ($key !== $this->apiKey) return false;
 
         try {
             $stockItem = $this->stockRegistry->getStockItemBySku($productSku);

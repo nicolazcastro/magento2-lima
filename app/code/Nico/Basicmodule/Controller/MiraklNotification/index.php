@@ -30,7 +30,7 @@ class Index implements ActionInterface
     public function execute()
     {
         // Get Mirakl notification data
-        $requestData = $this->request->getParams(); //product_sku && quantity
+        $requestData = $this->request->getParams(); //product_sku && quantity && API KEY
 
         // Process notification data and update stock in Magento
         $result = $this->stockUpdaterModel->updateStockFromMiraklNotification($requestData);
@@ -39,10 +39,5 @@ class Index implements ActionInterface
         $response = $this->jsonResultFactory->create();
         $response->setData(['success' => $result]);
         return $response;
-    }
-
-    public function dispatch(RequestInterface $request)
-    {
-        return $this->execute();
     }
 }
